@@ -443,12 +443,11 @@ profilesBtn.addEventListener("click", () => {
 });
 
 
-function setPlaysinlineForiPhone() {
-    // Check if the device is an iPhone
-    const isIPhone = navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    if (isIPhone) {
-        // Select all video elements
-        const videos = document.querySelectorAll('video');
+function addPlaysinlineToiPhoneVideos() {
+    // Check if the user is using an iPhone
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // Select all video elements with id="videoAttr"
+        const videos = document.querySelectorAll('#videoAttr');
         videos.forEach(video => {
             // Add the playsinline attribute
             video.setAttribute('playsinline', '');
@@ -456,5 +455,5 @@ function setPlaysinlineForiPhone() {
     }
 }
 
-// Call the function whenever needed
-setPlaysinlineForiPhone();
+// Call the function to apply the changes
+addPlaysinlineToiPhoneVideos();
