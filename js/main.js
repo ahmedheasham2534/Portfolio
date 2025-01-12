@@ -1,57 +1,52 @@
 ;(function () {
-    var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-            return (
-                isMobile.Android() || 
-                isMobile.BlackBerry() || 
-                isMobile.iOS() || 
-                isMobile.Opera() || 
-                isMobile.Windows()
-            );
-        }
-    };
 
-    var fullHeight = function() {
-        if (!isMobile.any()) {
-            $('.js-fullheight').css('height', $(window).height());
-            $(window).resize(function(){
-                $('.js-fullheight').css('height', $(window).height());
-            });
-        }
-    };
 
-    // Add playsinline attribute for iOS devices
-    var addPlaysinlineForiOS = function() {
-        if (isMobile.iOS()) {
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.setAttribute('playsinline', '');
-            });
-        }
-    };
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+			any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
 
-    // Call functions on document ready
-    $(function() {
-        fullHeight();
-        addPlaysinlineForiOS();
-    });
-})();
+	var fullHeight = function() {
 
+		if ( !isMobile.any() ) {
+			$('.js-fullheight').css('height', $(window).height());
+			$(window).resize(function(){
+				$('.js-fullheight').css('height', $(window).height());
+			});
+		}
+
+	};
+function setPlaysinlineForiPhone() {
+    // Check if the device is an iPhone
+    const isIPhone = navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    if (isIPhone) {
+        // Select all video elements
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            // Add the playsinline attribute
+            video.setAttribute('playsinline', '');
+        });
+    }
+}
+
+// Call the function whenever needed
+setPlaysinlineForiPhone();
 
 	var counter = function() {
 		$('.js-counter').countTo({
