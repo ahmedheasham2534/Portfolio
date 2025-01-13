@@ -60,12 +60,7 @@ figure {
     -o-background-size: cover;
     background-size: cover;
 }
-@supports (-webkit-touch-callout: none) {
-    body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
-      transform: translateX(250px); 
-      top: 5px; 
-    }
-  }
+
 ::-webkit-selection {
   color: #fff;
   background: #2c98f0; }
@@ -188,6 +183,7 @@ figure {
       margin: 0;
       padding: 0; 
     }
+
       @media screen and (max-width: 768px) {
         #colorlib-aside #colorlib-main-menu ul {
           margin: 0 0 2em 0; } 
@@ -415,6 +411,7 @@ body.offcanvas {
     -ms-transform: translateX(300px);
     -o-transform: translateX(300px);
     transform: translateX(300px); 
+     margin-left: 10px;
   }
 
 .colorlib-narrow-content {
@@ -1292,6 +1289,15 @@ body.offcanvas {
   position: relative;
   clear: both;
   margin-bottom: 5em; 
+  background-image: url('../images/cloud.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center; 
+}
+@media only screen and (max-width:767px){
+  #colorlib-counter {
+    background-position: -110px 0;
+  }
 }
 .colorlib-counters {
   padding: 3em 0;
@@ -1673,7 +1679,7 @@ body.offcanvas {
 
 .colorlib-nav-toggle {
   position: fixed;
-  left: -5px;
+  left: 10px;
   top: 0px;
   z-index: 9999;
   cursor: pointer;
