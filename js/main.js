@@ -457,3 +457,16 @@ function addPlaysinlineToiPhoneVideos() {
 
 // Call the function to apply the changes
 addPlaysinlineToiPhoneVideos();
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if the site has already been reloaded
+    if (!localStorage.getItem("siteReloaded")) {
+        // Set a timeout to reload the page after 5 seconds
+        setTimeout(() => {
+            location.reload();
+            // Mark the reload as completed in localStorage
+            localStorage.setItem("siteReloaded", "true");
+        }, 1000); // 5000ms = 5 seconds
+    }
+});
+
