@@ -54,7 +54,18 @@ figure {
     @media screen and (max-width: 480px) {
       figure figcaption {
         width: 100%; } }
-
+  .colorlib-counters {
+    -webkit-background-size: cover; /* iOS fix */
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+@supports (-webkit-touch-callout: none) {
+    body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
+      transform: translateX(250px); 
+      top: 5px; 
+    }
+  }
 ::-webkit-selection {
   color: #fff;
   background: #2c98f0; }
