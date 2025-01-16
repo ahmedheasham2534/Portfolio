@@ -1294,11 +1294,6 @@ body.offcanvas {
   background-attachment: fixed;
   background-position: center center; 
 }
-@media only screen and (max-width:767px){
-  #colorlib-counter {
-    background-position: -110px 0;
-  }
-}
 .colorlib-counters {
   padding: 3em 0;
   background-size: cover;
